@@ -45,7 +45,7 @@ var questions = [
 // function render question to display on a page//
 
 function renderQuestion(quiz) {
-    quiz = get("quiz");
+    var quiz = document.getElementById("quiz");
     if(pos >= questions.lenght) {
         quiz.innerHTML = "<h2>You Got "+correct+" of "+questions.lenght+" Questions Correct</h2>";
         get("quiz_status") .innerHTML = "Quiz Completed";
@@ -98,6 +98,7 @@ window.addEventListener("load", renderQuestion);
 function myFunction() {
     alert('Time is Over');
   }
-window.addEventListener("click", setTimeOut);  
+window.addEventListener("click", setTimeOut); 
+
 
 window.console.log('Code Quiz');

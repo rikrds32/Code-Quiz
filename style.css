@@ -1,9 +1,1 @@
 /* styling for quiz box*/
-.quiz{
-    position: absolute;
-    display: flex;
-    border: 3px solid black;
-    padding: 10px 40px 40px 40px;
-    background-color: cornflowerblue;
-    width:  50%;
-}
