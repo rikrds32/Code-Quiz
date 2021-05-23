@@ -55,9 +55,9 @@ function renderQuestion(quiz) {
     correct = 0;
     return false;
 }
-   get("quiz_status") .innerHTML = "Question"+(pos+1)+" of "+questions.lenght;
+   document.getElementById("quiz_status") .innerHTML = "Question"+(pos+1)+" of "+questions.lenght;
 
-   question = questions(pos).question; 
+   var question = questions[pos].question; 
    chA = questions[pos].a;
    chB = questions[pos].b;
    chC = questions[pos].c;
@@ -71,11 +71,9 @@ function renderQuestion(quiz) {
 //diaplay anwer options//
 
 quiz.innerHTML += "<label> <input type='radio' name='choices' value= 'A'>" +chA+"</label><br>";
-quiz.innerHTML += "<label> <input type='radio' name='choices' value= 'B'>" +chA+"</label><br>";
-quiz.innerHTML += "<label> <input type='radio' name='choices' value= 'C'>" +chA+"</label><br>";
-quiz.innerHTML += "<label> <input type='radio' name='choices' value= 'D'>" +chA+"</label><br>";
-quiz.innerHTML += "<label> <input type='radio' name='choices' value= 'E'>" +chA+"</label><br></br>";
-quiz.innerHTML += "<button onclick='checkanswer()'>Submit Answer</button>";
+quiz.innerHTML += "<label> <input type='radio' name='choices' value= 'B'>" +chB+"</label><br>";
+quiz.innerHTML += "<label> <input type='radio' name='choices' value= 'C'>" +chC+"</label><br>";
+quiz.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
 
 }
 function checkAnswer() {
