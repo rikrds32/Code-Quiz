@@ -62,5 +62,24 @@ function renderQuestion() {
    get("quiz_status") .innerHTML = "Question"+(pos+1)+" of "+questions.lenght;
 
    question = questions(pos).question; 
+   chA = questions[pos].a;
+   chB = questions[pos].b;
+   chC = questions[pos].c;
+   chD = questions[pos].d;
+   chE = questions[pos].e;
+
+// display question //
+
+   quiz.innerHTML = "<h3>"+question+"</h3>";
+
+//diaplay anwer options//
+
+quiz.innerHTML += "<label> <input type='radio' name='choices' value= 'A'>" +chA+"</label><br>";
+quiz.innerHTML += "<label> <input type='radio' name='choices' value= 'B'>" +chA+"</label><br>";
+quiz.innerHTML += "<label> <input type='radio' name='choices' value= 'C'>" +chA+"</label><br>";
+quiz.innerHTML += "<label> <input type='radio' name='choices' value= 'D'>" +chA+"</label><br>";
+quiz.innerHTML += "<label> <input type='radio' name='choices' value= 'E'>" +chA+"</label><br></br>";
+quiz.innerHTML += "<button onclick='checkanswer()'>Submit Answer</button>";
+
 }
 
