@@ -40,15 +40,11 @@ var questions = [
     }  
 ]; 
 
-//getElementById function //
 
-function get(x) {
-    return document.getElementById(x);
-}
 
 // function render question to display on a page//
 
-function renderQuestion() {
+function renderQuestion(quiz) {
     quiz = get("quiz");
     if(pos >= questions.lenght) {
         quiz.innerHTML = "<h2>You Got "+correct+" of "+questions.lenght+" Questions Correct</h2>";
@@ -82,4 +78,26 @@ quiz.innerHTML += "<label> <input type='radio' name='choices' value= 'E'>" +chA+
 quiz.innerHTML += "<button onclick='checkanswer()'>Submit Answer</button>";
 
 }
+function checkAnswer() {
+    choices = document.getElementsByName ("choices");
+    for(var i=0; i<choices.lenght; i++){
+        if(choices[i].checked){
+            choice = choices [i] .value;
+        }
+    }
+// make sure andwer matches correct choice//
 
+if(choice == questions[pos].answer){
+    correct++;
+}
+pos++;
+renderQuestion();
+}
+window.addEventListener("load", renderQuestion);
+
+function myFunction() {
+    alert('Time is Over');
+  }
+window.addEventListener("click", setTimeOut);  
+
+window.console.log('Code Quiz');
