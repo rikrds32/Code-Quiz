@@ -46,15 +46,7 @@ var questions = [
 
 function renderQuestion(quiz) {
     var quiz = document.getElementById("quiz");
-    if(pos >= questions.lenght) {
-        quiz.innerHTML = "<h2>You Got "+correct+" of "+questions.lenght+" Questions Correct</h2>";
-        get("quiz_status") .innerHTML = "Quiz Completed";
-// resets variables to allow users restart the quiz//
 
-    pos = 0;
-    correct = 0;
-    return false;
-}
    document.getElementById("quiz_status") .innerHTML = "Question"+(pos+1)+" of "+questions.lenght;
 
    var question = questions[pos].question; 
@@ -89,6 +81,15 @@ if(choice == questions[pos].answer){
     correct++;
 }
 pos++;
+if(pos <= questions.lenght) {
+    quiz.innerHTML = "<h2>You Got "+correct+" of "+questions.lenght+" Questions Correct</h2>";
+    get("quiz_status") .innerHTML = "Quiz Completed";
+// resets variables to allow users restart the quiz//
+
+pos = 0;
+correct = 0;
+return false;
+}
 renderQuestion();
 }
 window.addEventListener("load", renderQuestion);
@@ -98,5 +99,5 @@ function myFunction() {
   }
 window.addEventListener("click", setTimeOut); 
 
-
 window.console.log('Code Quiz');
+
