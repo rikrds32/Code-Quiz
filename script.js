@@ -45,7 +45,7 @@ var questions = [
 // function render question to display on a page//
 
 function renderQuestion(quiz) {
-    var quiz = document.getElementById("quiz");
+    quiz = document.getElementById("quiz");
 
    document.getElementById("quiz_status") .innerHTML = "Question"+(pos+1)+" of "+questions.lenght;
 
@@ -64,11 +64,12 @@ function renderQuestion(quiz) {
 
 quiz.innerHTML += "<label> <input type='radio' name='choices' value= 'A'>" +chA+"</label><br>";
 quiz.innerHTML += "<label> <input type='radio' name='choices' value= 'B'>" +chB+"</label><br>";
-quiz.innerHTML += "<label> <input type='radio' name='choices' value= 'C'>" +chC+"</label><br>";
+quiz.innerHTML += "<label> <input type='radio' name='choices' value= 'C'>" +chC+"</label><br><br>";
 quiz.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
 
 }
 function checkAnswer() {
+    quiz = document.getElementById("quiz");
     choices = document.getElementsByName ("choices");
     for(var i=0; i<choices.lenght; i++){
         if(choices[i].checked){
@@ -81,9 +82,9 @@ if(choice == questions[pos].answer){
     correct++;
 }
 pos++;
-if(pos <= questions.lenght) {
+if(pos === 5) {
     quiz.innerHTML = "<h2>You Got "+correct+" of "+questions.lenght+" Questions Correct</h2>";
-    get("quiz_status") .innerHTML = "Quiz Completed";
+    document.getElementById("quiz_status") .innerHTML = "Quiz Completed";
 // resets variables to allow users restart the quiz//
 
 pos = 0;
