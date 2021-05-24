@@ -1,6 +1,6 @@
 // variables for the quiz//
 
-var pos= 0, quiz, quiz_status, question, choice, choices, chA, chB, chC, chD, chE, correct = 0;
+var pos= 0, quiz, quiz_status, question, choice, choices, chA, chB, chC, chD, chE, correct = 0, seconds = 75;
 
 var questions = [
 {
@@ -40,7 +40,17 @@ var questions = [
     }  
 ]; 
 
+// timer function //
 
+function timer(){
+    
+    setInterval(function() {
+        var timer= document.getElementById("timer")
+        seconds--;
+        timer.textContent = seconds;
+        
+    }, 1000);
+}
 
 // function render question to display on a page//
 
@@ -96,9 +106,10 @@ renderQuestion();
 window.addEventListener("load", renderQuestion);
 
 function myFunction() {
+    document.getElementById("timer").innerHTML="timer";
     alert('Time is Over');
   }
-window.addEventListener("click", setTimeOut); 
+window.addEventListener("click", timer); 
 
 window.console.log('Code Quiz');
 
