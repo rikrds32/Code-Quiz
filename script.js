@@ -43,11 +43,14 @@ var questions = [
 // timer function //
 
 function timer(){
-    
-    setInterval(function() {
+    var interval;
+interval=setInterval(function() {
         var timer= document.getElementById("timer")
         seconds--;
         timer.textContent = seconds;
+    if(seconds == 0){
+        clearInterval(interval);
+    }
         
     }, 1000);
 }
